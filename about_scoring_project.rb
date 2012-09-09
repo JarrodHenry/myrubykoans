@@ -33,9 +33,8 @@ def score(dice)
 	# Initialize score = 0
 	score = 0
 
-	#put the dice in order
-	dice.sort!
-	
+ 	#count the dice
+	#	
 	ones = dice.count(1)
 	twos = dice.count(2)
 	threes = dice.count(3)
@@ -44,7 +43,35 @@ def score(dice)
 	sixes = dice.count(6)
 
 	# do the threesomes, first
+	if ones >= 3 
+		score += 1000
+		ones -= 3
+	end
+	if twos >= 3
+		score += 200
+		twos -= 3
+	end
+	if threes >= 3
+		score += 300
+		threes -=3
+	end
+	if fours >= 3
+		score += 400
+		fours -= 3
+	end
+	if fives >= 3
+		score += 500
+		fives -= 3
+	end
+	if sixes >= 3
+		score += 600
+		sixes -= 3
+	end
 
+	score += ones * 100
+	score += fives * 50
+
+	return score
 	
 	# return the score
 
