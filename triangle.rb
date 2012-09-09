@@ -14,7 +14,34 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+	#validation first
+
+	if a == 0 or b == 0 or c == 0
+		raise TriangleError, "Sides cannot be zero"
+	end
+
+	if a < 0 or b < 0 or c < 0
+		raise TriangleError, "Sides cannot be negative"
+	end
+
+	if a+b <= c or a+c <= b or b + c <= a 
+		raise TriangleError, "Triangle must touch."
+	end
+
+
+
+
+
+	if a == b and b == c and c==a
+		return :equilateral	
+	end
+
+	if a == b or b == c or a == c
+		return :isosceles	
+	end
+
+
+	return :scalene 
 end
 
 # Error class used in part 2.  No need to change this code.
